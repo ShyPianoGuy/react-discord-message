@@ -27,8 +27,8 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint src --ext ts",
-    "prepare": "yarn build",
-    "postversion" : "git push && git push --tags"
+    "prepare": "yarn install && yarn build",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@types/react": "^18.0.35",

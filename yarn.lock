@@ -642,6 +642,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"discord-messages-react@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "discord-messages-react@workspace:."
+  dependencies:
+    "@types/react": ^18.0.35
+    eslint: ^8.38.0
+    eslint-config-next: ^13.3.0
+    eslint-config-standard-react: ^13.0.0
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-promise: ^6.1.1
+    eslint-plugin-react: ^7.32.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-standard: ^5.0.0
+    react: 18.2.0
+    react-dom: 18.2.0
+    typescript: ^5.0.4
+  languageName: unknown
+  linkType: soft
+
 "doctrine@npm:^2.1.0":
   version: 2.1.0
   resolution: "doctrine@npm:2.1.0"
@@ -2281,26 +2301,6 @@ __metadata:
   checksum: 823bf443c6dd14f669984dea25757b37993f67e8d94698996064035edd43bed8a5a17a9f12e439c2b35df1078c6bec05a6c86e336209eb1061e8025c481168e8
   languageName: node
   linkType: hard
-
-"react-discord-message@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "react-discord-message@workspace:."
-  dependencies:
-    "@types/react": ^18.0.35
-    eslint: ^8.38.0
-    eslint-config-next: ^13.3.0
-    eslint-config-standard-react: ^13.0.0
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-node: ^11.1.0
-    eslint-plugin-promise: ^6.1.1
-    eslint-plugin-react: ^7.32.2
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-standard: ^5.0.0
-    react: 18.2.0
-    react-dom: 18.2.0
-    typescript: ^5.0.4
-  languageName: unknown
-  linkType: soft
 
 "react-dom@npm:18.2.0":
   version: 18.2.0
