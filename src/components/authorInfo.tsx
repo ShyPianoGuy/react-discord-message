@@ -1,5 +1,5 @@
 import React from 'react'
-import './authorInfo.css'
+import '../css/authorInfo.css'
 
 type AuthorInfoFunction = {
 	author?: string;

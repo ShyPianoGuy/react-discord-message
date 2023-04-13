@@ -1,5 +1,5 @@
 import React, {  ReactNode, useEffect, useRef } from 'react'
-import './discordMention.css'
+import '../css/discordMention.css'
 
 type DiscordMentionFunction = {
 	children?: ReactNode;

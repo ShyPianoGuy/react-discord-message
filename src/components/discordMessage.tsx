@@ -3,7 +3,7 @@ import AuthorInfo from './authorInfo'
 import DiscordDefaultOptions from '../context/discordDefaultOptions'
 import DiscordOptionsContext from '../context/discordOptionsContext'
 import { elementsWithoutSlot, findSlot, parseTimestamp } from '../util'
-import './discordMessage.css'
+import '../css/discordMessage.css'
 
 const now = new Date()
 

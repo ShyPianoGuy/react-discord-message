@@ -1,7 +1,7 @@
 import React, { Children, ReactElement, ReactNode, cloneElement, useContext } from 'react'
 import DiscordDefaultOptions from '../context/discordDefaultOptions.js'
 import DiscordOptionsContext from '../context/discordOptionsContext.js'
-import './discordMessages.css'
+import '../css/discordMessages.css'
 
 type DiscordMessagesFunction = {
 	children: ReactElement,

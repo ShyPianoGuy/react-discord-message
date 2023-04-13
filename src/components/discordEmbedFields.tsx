@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import './discordEmbedFields.css'
+import '../css/discordEmbedFields.css'
 
 type DiscordEmbedFieldsFunction = {
 	children: ReactNode;

@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode, isValidElement } from 'react'
 import { elementsWithoutSlot, findSlot, parseTimestamp } from '../util.js'
-import './discordEmbed.css'
+import '../css/discordEmbed.css'
 
 type DiscordEmbedFunction = {
 	authorImage?: string;
