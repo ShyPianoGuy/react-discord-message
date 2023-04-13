@@ -1,7 +1,20 @@
-import React, { isValidElement } from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactElement, ReactNode, isValidElement } from 'react'
 import { elementsWithoutSlot, findSlot, parseTimestamp } from '../util.js'
-import './DiscordEmbed.css'
+import './discordEmbed.css'
+
+type DiscordEmbedFunction = {
+	authorImage?: string;
+	authorName?: string;
+	authorUrl?: string;
+	children: ReactNode;
+	color?: string;
+	footerImage?: string;
+	image?: string;
+	thumbnail?: string;
+	timestamp?: Date;
+	title?: string;
+	url?: string;
+}
 
 function DiscordEmbed({
 	authorImage,
@@ -15,7 +28,7 @@ function DiscordEmbed({
 	timestamp,
 	title,
 	url,
-}) {
+}: DiscordEmbedFunction) {
 	const slots = {
 		'default': children,
 		fields: findSlot(children, 'fields'),
@@ -27,10 +40,10 @@ function DiscordEmbed({
 			throw new Error('Element with slot name "fields" should be a valid DiscordEmbedFields component.')
 		}
 
-		slots.default = elementsWithoutSlot(slots.default, 'fields')
+		slots.default = elementsWithoutSlot(slots.default as ReactElement[], 'fields')
 	}
 
-	if (slots.footer) slots.default = elementsWithoutSlot(slots.default, 'footer')
+	if (slots.footer) slots.default = elementsWithoutSlot(slots.default as ReactElement, 'footer')
 
 	const content = {
 		author: (
@@ -82,27 +95,6 @@ function DiscordEmbed({
 			</div>
 		</div>
 	)
-}
-
-DiscordEmbed.propTypes = {
-	authorImage: PropTypes.string,
-	authorName: PropTypes.string,
-	authorUrl: PropTypes.string,
-	children: PropTypes.node,
-	color: PropTypes.string,
-	footerImage: PropTypes.string,
-	image: PropTypes.string,
-	thumbnail: PropTypes.string,
-	timestamp: PropTypes.oneOfType([
-		PropTypes.instanceOf(Date),
-		PropTypes.string,
-	]),
-	title: PropTypes.string,
-	url: PropTypes.string,
-}
-
-DiscordEmbed.defaultProps = {
-	author: 'User',
 }
 
 export default DiscordEmbed

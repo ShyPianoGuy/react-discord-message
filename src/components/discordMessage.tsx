@@ -1,12 +1,23 @@
-import React, { Fragment, isValidElement, useContext } from 'react'
-import PropTypes from 'prop-types'
-import AuthorInfo from './AuthorInfo.js'
-import DiscordDefaultOptions from '../context/DiscordDefaultOptions.js'
-import DiscordOptionsContext from '../context/DiscordOptionsContext.js'
-import { elementsWithoutSlot, findSlot, parseTimestamp } from '../util.js'
-import './DiscordMessage.css'
+import React, { Fragment, ReactElement, ReactNode, isValidElement, useContext } from 'react'
+import AuthorInfo from './authorInfo'
+import DiscordDefaultOptions from '../context/discordDefaultOptions'
+import DiscordOptionsContext from '../context/discordOptionsContext'
+import { elementsWithoutSlot, findSlot, parseTimestamp } from '../util'
+import './discordMessage.css'
 
 const now = new Date()
+
+type DiscordMessageFunction = {
+	author: string,
+	avatar: string,
+	bot: boolean,
+	children: ReactNode,
+	compactMode: boolean,
+	edited: boolean,
+	profile: string,
+	roleColor: string,
+	timestamp: Date,
+}
 
 function DiscordMessage({
 	author,
@@ -18,16 +29,14 @@ function DiscordMessage({
 	profile: profileKey,
 	roleColor,
 	timestamp,
-}) {
+}: DiscordMessageFunction) {
 	const options = useContext(DiscordOptionsContext) || DiscordDefaultOptions
 
-	const profileDefaults = { author, bot, roleColor }
-	const resolveAvatar = userAvatar => options.avatars[userAvatar] || userAvatar || options.avatars.default
+	const profileDefaults = { author, bot, roleColor, avatar }
+	const resolveAvatar = (userAvatar: string) => options.avatars[userAvatar as keyof typeof options.avatars] || userAvatar || options.avatars.default
 
-	const userProfile = options.profiles[profileKey] || {}
-	userProfile.avatar = resolveAvatar(userProfile.avatar || avatar)
-
-	const profile = { ...profileDefaults, ...userProfile }
+	profileDefaults.avatar = resolveAvatar(avatar);
+	const profile = { ...profileDefaults }
 
 	const authorInfo = {
 		comfy: (
@@ -48,13 +57,13 @@ function DiscordMessage({
 		),
 	}
 
-	const checkHighlight = elements => {
+	const checkHighlight = (elements: ReactElement[]) => {
 		if (!Array.isArray(elements)) return false
 		return elements.some(({ props: childProps = {} }) => childProps.highlight && childProps.type !== 'channel')
 	}
 
 	let messageClasses = 'discord-message'
-	if (children && checkHighlight(children)) messageClasses += ' discord-highlight-mention'
+	if (children && checkHighlight(children as ReactElement[])) messageClasses += ' discord-highlight-mention'
 
 	const slots = {
 		'default': children,
@@ -66,7 +75,7 @@ function DiscordMessage({
 			throw new Error('Element with slot name "embeds" should be a valid DiscordEmbed component.')
 		}
 
-		slots.default = elementsWithoutSlot(slots.default, 'embeds')
+		slots.default = elementsWithoutSlot(slots.default as ReactElement[], 'embeds')
 	}
 
 	return (
@@ -88,26 +97,6 @@ function DiscordMessage({
 			</div>
 		</div>
 	)
-}
-
-DiscordMessage.propTypes = {
-	author: PropTypes.string,
-	avatar: PropTypes.string,
-	bot: PropTypes.bool,
-	children: PropTypes.node,
-	compactMode: PropTypes.bool,
-	edited: PropTypes.bool,
-	profile: PropTypes.string,
-	roleColor: PropTypes.string,
-	timestamp: PropTypes.oneOfType([
-		PropTypes.instanceOf(Date),
-		PropTypes.string,
-	]),
-}
-
-DiscordMessage.defaultProps = {
-	author: 'User',
-	timestamp: now,
 }
 
 export default DiscordMessage

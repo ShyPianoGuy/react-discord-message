@@ -3,6 +3,12 @@
 
 # dependencies
 node_modules
+.yarn/cache
+.yarn/install-state.gz
+.yarn/unplugged
+
+.pnp.cjs
+.pnp.loader.mjs
 
 # builds
 build
