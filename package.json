@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint src --ext ts",
-    "prepare": "yarn install && yarn build && cp ./src/css ./dist",
+    "prepare": "yarn install && yarn build && cp ./src/css ./dist/css",
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
