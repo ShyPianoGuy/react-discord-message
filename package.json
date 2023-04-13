@@ -1,6 +1,6 @@
 {
   "name": "discord-messages-react",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "React components to easily build and display fake Discord messages on your webpages.",
   "keywords": [
     "react",
@@ -27,8 +27,8 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint src --ext ts",
-    "prepare": "NODE_ENV=production",
-    "predeploy": "yarn install && yarn build"
+    "prepare": "yarn build",
+    "postversion" : "git push && git push --tags"
   },
   "devDependencies": {
     "@types/react": "^18.0.35",
