@@ -3,7 +3,7 @@ import './discordEmbedField.css'
 
 type DiscordEmbedFieldFunction = {
 	children: ReactNode;
-	fieldTitle: string;
+	fieldTitle?: string;
 	inline?: boolean
 }
 

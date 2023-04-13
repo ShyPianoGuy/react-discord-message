@@ -5,8 +5,8 @@ import './discordMessages.css'
 
 type DiscordMessagesFunction = {
 	children: ReactElement,
-	compactMode: boolean,
-	lightTheme: boolean,
+	compactMode?: boolean,
+	lightTheme?: boolean,
 }
 
 function DiscordMessages({ children, compactMode, lightTheme }: DiscordMessagesFunction) {

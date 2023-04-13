@@ -2,9 +2,9 @@ import React, {  ReactNode, useEffect, useRef } from 'react'
 import './discordMention.css'
 
 type DiscordMentionFunction = {
-	children: ReactNode;
-	color: string;
-	type: 'user' | 'channel' | 'role';
+	children?: ReactNode;
+	color?: string;
+	type?: 'user' | 'channel' | 'role';
 }
 
 

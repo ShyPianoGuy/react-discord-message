@@ -8,15 +8,15 @@ import './discordMessage.css'
 const now = new Date()
 
 type DiscordMessageFunction = {
-	author: string,
-	avatar: string,
-	bot: boolean,
-	children: ReactNode,
-	compactMode: boolean,
-	edited: boolean,
-	profile: string,
-	roleColor: string,
-	timestamp: Date,
+	author?: string,
+	avatar?: string,
+	bot?: boolean,
+	children?: ReactNode,
+	compactMode?: boolean,
+	edited?: boolean,
+	profile?: string,
+	roleColor?: string,
+	timestamp?: Date,
 }
 
 function DiscordMessage({

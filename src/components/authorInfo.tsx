@@ -2,9 +2,9 @@ import React from 'react'
 import './authorInfo.css'
 
 type AuthorInfoFunction = {
-	author: string;
-	bot: boolean;
-	roleColor: string;
+	author?: string;
+	bot?: boolean;
+	roleColor?: string;
 }
 
 function AuthorInfo({ author, bot, roleColor }: AuthorInfoFunction) {
