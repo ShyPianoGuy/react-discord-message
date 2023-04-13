@@ -1,6 +1,6 @@
 {
-  "name": "react-discord-messages",
-  "version": "1.0.5",
+  "name": "discord-messages-react",
+  "version": "1.0.6",
   "description": "React components to easily build and display fake Discord messages on your webpages.",
   "keywords": [
     "react",
